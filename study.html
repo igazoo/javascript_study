@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+
+<head>
+</head>
+
+<body>
+    <h1>やることリスト</h1>
+    <ul id="list">
+    </ul>
+
+    <script>
+        'use script'
+        let todo = ["処理", '作成', '実行'];
+        for (let item of todo) {
+            const li = `<li>${item}</li>`;
+            document.getElementById('list').insertAdjacentHTML('beforeend', li);
+        }
+    </script>
+</body>

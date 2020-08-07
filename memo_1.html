@@ -1,0 +1,105 @@
+javascriptについて
+勉強　本　
+三章　基本的な文法と機能
+
+ルール
+基本の型
+<script>
+    'use script'
+</script>
+
+変数定義
+var 変数の定義 再代入、再定義も可
+let 変数の定義、再代入、再定義は不可
+const 定数の定義、変更不可
+
+★ダイアログボックス
+window.alert(出力したいテキストや計算式など)
+
+★documentオブジェクト getElementByIdメソッド
+htmlでのidを部分を操作するために指定するメソッド
+
+document.getElementById('id名')
+
+★確認ダイアログボックス
+window.confirm(メッセージ)
+if文と同じような動き
+
+例えば
+<html>
+<script>
+    'use script'
+    if (window.confirm('ゲームをスタート！準備はいい？')) {
+        console.log('ゲームを開始します');//trueの時
+    } else {
+        console.log('ゲームを終了します');//falseの時
+    }
+</script>
+
+</html>
+
+★クリックされたボタンの結果を変数に保存する　
+　入力内容に応じて動作を変更する
+window.prompt(メッセージ)
+
+
+<html>
+<script>
+    'use script'
+    let answer = window.prompt('ヘルプを見ますか？');//ダイアログで入力された内容をanswerに代入
+    console.log(answer);
+</script>
+
+</html>
+
+★配列の操作
+配列の要素を一つずつ出力
+<html>
+<script>
+    let todo = ["a", "b", "c"];
+    for (let i of todo) {
+        console.log(i);
+    }
+</script>
+
+</html>
+他にも配列操作のメソッド
+配列名.pop 配列の最後の要素を取り出す
+配列名.shift 配列の最初の要素を取り出す
+配列名.push 配列に要素を追加
+配列名.unshift 配列の先頭に要素を追加
+
+★htmlの要素を操作
+項目をhtmlに出力する
+document.getElementById('id名')で要素を指定
+
+取得した要素.insertAdjacentHTML('挿入する場所' , '挿入する要素');
+このメソッドで要素を追加できる
+挿入する場所
+例
+
+'beforebegin'
+<ul>
+    'afterbegin'
+    <li>すでに存在する要素</li>
+    'beforeend'
+</ul>
+'afterend'
+この四つが存在する
+
+例文
+<html>
+<h1>やることリスト</h1>
+<ul id="list">
+</ul>
+
+<script>
+    'use script'
+    let todo = ["処理", '作成', '実行'];
+    for (let item of todo) {
+        const li = `<li>${item}</li>`;
+        document.getElementById('list').insertAdjacentHTML('beforeend', li);
+    }
+</script>
+
+</html>
