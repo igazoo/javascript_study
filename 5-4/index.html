@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>5-04_image</title>
+
+    <style>
+        section img {
+            max-width: 100%;
+        }
+
+        .center {
+            margin: 0 auto 0 auto;
+            max-width: 90%;
+            width: 500px;
+        }
+
+        ul {
+            display: flex;
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
+
+        li {
+            flex: 1 1 auto;
+            margin-right: 8px;
+        }
+
+        li:last-of-type {
+            margin-right: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <h1>イメージの切り替え</h1>
+            <h2>HTMLのdata-ナンデモ属性を使用する</h2>
+        </div><!-- /.container -->
+    </header>
+    <main>
+        <div class="container">
+            <section>
+                <div class="center">
+                    <div>
+                        <img src="img1.jpg" id="bigimg">
+                    </div>
+                    <ul>
+                        <li><img src="thumb-img1.jpg" class="thumb" data-image="img1.jpg"></li>
+                        <li><img src="thumb-img2.jpg" class="thumb" data-image="img2.jpg"></li>
+                        <li><img src="thumb-img3.jpg" class="thumb" data-image="img3.jpg"></li>
+                        <li><img src="thumb-img4.jpg" class="thumb" data-image="img4.jpg"></li>
+                    </ul>
+                </div>
+            </section>
+        </div><!-- /.container -->
+    </main>
+    <footer>
+        <div class="container">
+            <p>JavaScript Samples</p>
+        </div><!-- /.container -->
+    </footer>
+    <script>
+        'use strict';
+
+        const thumbs = document.querySelectorAll('.thumb');//classがthumbのものを全て取得
+        thumbs.forEach(function (item, index) {
+            item.onclick = function () {
+                document.getElementById('bigimg').src = this.dataset.image;
+            }
+        });
+        //querySelectorAllメソッドはマッチする全てを取得する
+        //document.querySelectorAll('cssセレクタ')
+        //forEachメソッド
+        //forEach(function (item, index) {
+        //処理内容
+        //itemが内容 indexが配列のkey
+        //});
+        //data-なんでも属性
+        //htmlで< タグ data-image = "img1">
+                          // ↓
+                     //この部分を自由に決めることができる
+        //取得した要素.dataset.なんでも属性のところにつけた名前
+        //今回ならimageだから this.dataset.imageとなる
+
+    </script>
+</body>
+
+</html>

@@ -1,5 +1,6 @@
 javascriptについて
 勉強　本　
+
 三章　基本的な文法と機能
 
 ルール
@@ -29,11 +30,11 @@ if文と同じような動き
 <html>
 <script>
     'use script'
-    if (window.confirm('ゲームをスタート！準備はいい？')) {
-        console.log('ゲームを開始します');//trueの時
-    } else {
-        console.log('ゲームを終了します');//falseの時
-    }
+    // if (window.confirm('ゲームをスタート！準備はいい？')) {
+    //     console.log('ゲームを開始します');//trueの時
+    // } else {
+    //     console.log('ゲームを終了します');//falseの時
+    // }
 </script>
 
 </html>
@@ -45,9 +46,9 @@ window.prompt(メッセージ)
 
 <html>
 <script>
-    'use script'
-    let answer = window.prompt('ヘルプを見ますか？');//ダイアログで入力された内容をanswerに代入
-    console.log(answer);
+    // 'use script'
+    // let answer = window.prompt('ヘルプを見ますか？');//ダイアログで入力された内容をanswerに代入
+    // console.log(answer);
 </script>
 
 </html>
@@ -103,3 +104,38 @@ document.getElementById('id名')で要素を指定
 </script>
 
 </html>
+
+
+第四章
+
+フォームの入力内容を取得する
+
+
+
+このfunctionの{}内に、onsubmitイベントが発生した時に実行させたい処理を書きます。
+
+例文
+<section>
+    <form action="#" id="form">
+        <input type="text" name="word">
+        <input type="submit" value="検索">
+    </form>
+    <p id="output"></p>
+</section>
+
+<script>
+    'use strict'
+    document.getElementById('form').onsubmit = function (event) {
+        event.preventDefault();
+        const serach = document.getElementById('form').word.value;
+        document.getElementById('output').textContent = `[${serach}]の検索中...`;
+    };
+</script>
+↓
+
+解説　
+入力内容を読み取る文
+取得したいform要素.読み取りたいフォーム部品のname属性.value
+
+inputに入力された内容は　valueプロパティに保存される
+event.preventDefault()はタグの基本動作をキャンセルしている
