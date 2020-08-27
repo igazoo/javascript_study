@@ -1,0 +1,35 @@
+jQueryの文法の基本
+
+<html lang="ja">
+
+<body>
+  <section>
+          <h2>サポートページ</h2>
+          <div class="submenu">
+              <h3>1. 初めて使うとき</h3>
+              <ul class="hidden">
+                  <li><a href="">- 概要</a></li>
+                  <li><a href="">- インストールする</a></li>
+                  <li><a href="">- アカウントを登録する</a></li>
+                  <li><a href="">- アンインストールする</a></li>
+              </ul>
+          </div>
+  </section>
+  <script src="../../_common/scripts/jquery-3.4.1.min.js"></script>
+  <script>
+    'use strict'
+    $(document).ready(function(){//htmlが読み込まれたらfunction{}の中が読み込まれるということ
+      $('submenu h3').on('click', function(){//classのsubmenuのh3がクリックされたとき
+        $(this).next().toggleClass('hidden');//このsubmenuのh3のnext、つまり下の要素を取得
+                                             //toggleClassメソッドでhiddinのclassを追加、削除を交互に繰り返す
+                                             //ここではクリックするごとに追加と削除を繰り返す
+      });
+    });
+    //$()で取得した要素.on('イベント名', function(){
+      //イベントが発生したときの処理
+  //})
+  </script>
+
+</body>
+
+</html>
